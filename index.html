@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>办公室管理系统</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      body{
+        font-size:13px;
+      }
+      .mainDiv{
+        border:2px solid #C8DCDB;
+        width:900px;
+        margin:0px auto;
+        border-top-left-radius:20px;
+        border-top-right-radius:20px;
+        overflow:hidden;
+      }
+      .title{
+        background-color:#94BFE2;
+        border-bottom:1px solid #C8DCDB;
+        height:50px;
+        line-height:50px;
+        font-weight:bold;
+        padding-left:10px;
+        font-size:15px;
+      }
+      .line{
+        width:700px;
+        height:30px;
+        line-height:30px;
+        font-weight:bold;
+        margin:0px auto;
+        margin-top:30px;
+        border-bottom:1px solid #C8DCDB;
+      }
+      .item{
+        width:700px;
+        display:flex;
+        margin:10px auto;
+      }
+      .item div:nth-of-type(1){
+        width:100px;
+        text-align:right;
+      }
+      .item div:nth-of-type(2){
+        width:600px;
+      }
+      .txt1{
+        width:200px;
+      }
+      .txt2{
+        width:300px;
+      }
+      .txt3{
+        width:500px;
+        height:100px;
+      }
+      span{
+        color:red;
+        margin-left:20px;
+      }
+    </style>
+    <script type="text/javascript">
+      function checkReg(){
+        
+        //清空所有提示
+        document.getElementById("nameSpan").innerHTML = "";
+        document.getElementById("pwdSpan").innerHTML = "";
+        
+        if(document.frm.userName.value != "admin"){
+          document.getElementById("nameSpan").innerHTML = "请输入正确账号";
+          document.frm.userName.focus();//文本框获得焦点
+          return false;
+        }
+        else if(document.frm.password.value != "12123"){
+          document.getElementById("pwdSpan").innerHTML = "请输入正确密码";
+          document.frm.password.focus();
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    
+    <form name="frm" method="get" onsubmit="return checkReg()" action="http://www.baidu.com" >
+    
+    <div class="mainDiv">
+      
+      <!--表格的title-->
+      <div class="title">管理员登入</div>
+      
+      <!--基本信息-->
+      <div class="line">登录</div>
+      <div class="item">
+        <div>账号：</div>
+        <div><input type="text" name="userName" class="txt1" /><span id="nameSpan"></span></div>
+      </div>
+      <div class="item">
+        <div>密码：</div>
+        <div><input type="password" name="password" class="txt1" /><span id="pwdSpan"></span></div>
+      </div>
+      <div class="item">
+        <div>管理方式：</div>
+        <div>
+          <select name="userType">
+            <option value="1">职工管理</option>
+            <option value="2" selected>学生档案管理</option>
+          </select>
+        </div>
+      </div>
+      
+      <!--其他信息-->
+      <div class="line">其他信息</div>
+      <div class="item">
+        <div>行为类别：</div>
+        <div>
+          <input type="checkbox" name="like" value="1" checked/>修改学生信息
+          <input type="checkbox" name="like" value="2" />查看学生信息
+          <input type="checkbox" name="like" value="3" checked/>修改职工信息
+          <input type="checkbox" name="like" value="4" />查看职工信息
+        </div>
+      </div>
+      <div class="item">
+        <div>行为备注：</div>
+        <div><textarea name="remark" class="txt3"></textarea></div>
+      </div>
+      
+      <!--提交按扭-->
+      <div class="item">
+        <div></div>
+        <div>
+          <input type="submit" value="登入" />
+          &nbsp;&nbsp;&nbsp;
+          <input type="reset" value="清空" />
+        </div>
+      </div>
+      
+    </div>
+    
+    </form>
+    
+  </body>
+</html>
